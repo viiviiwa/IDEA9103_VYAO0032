@@ -92,3 +92,4 @@ function drawAll() {
   drawBgPattern();       // draw animated background
   drawBullPattern();     // draw animated bull foreground
 }
+

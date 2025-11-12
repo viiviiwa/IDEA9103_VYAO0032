@@ -20,6 +20,7 @@ let backColor = 250; // backrgound colour (light grey)
 function preload() {
   bgImg = loadImage('bull_background.png'); // background link
   bullImg = loadImage('bull_foreground.png'); // foreground link
+  preloadAudio('MatadorOle.mp3'); //audio
 }
 
 // =========================
@@ -28,6 +29,8 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth, windowHeight); // full screen canvas
+
+  setupAudio();
   
   // loading pixel data of both images to grab the sample colours
   bgImg.loadPixels();
@@ -216,4 +219,5 @@ function windowResized() {
   drawAll();
 
   assignAnimationParams();
+  windowResizedAudio();
 }

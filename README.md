@@ -1,9 +1,13 @@
-# IDEA9103 - 
-## Tutorial 3 - Group-D
-VYAO0032 
-Instructions on interaction 
+# IDEA9103 -  TutGroup-D 
+## VYAO0032 
 
-This approach is Audio based.
-What properties animated? 
-References? 
-Short technical
+### Instructions on interaction : 
+Click the play button below the bull and wait for the music 
+
+### Animation 
+The main driver of this submission is Audio. 
+The geometric shapes change size depending on the frequency of the audio. 
+
+### References
+
+### Techincal 
