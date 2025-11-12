@@ -1,9 +1,9 @@
 # IDEA9103 - 
 ## Tutorial 3 - Group-D
+VYAO0032 
+Instructions on interaction 
 
-IDEA9103 Major Project Repository : 
-Erin Ambulo
-Sung-Hee (Dia) Cho
-Vivienne Yao
-
-AI assistance was used to help generate and refine code in this project. All code has been reviewed by the team. 
+This approach is Audio based.
+What properties animated? 
+References? 
+Short technical
