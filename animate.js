@@ -35,7 +35,7 @@ function drawBgPattern() {
     let w = cellSize * (shapeSize + pulse);
     let h = cellSize * (shapeSize + pulse);
 
-    fill(seg.color); // use the color from the image
+    fill(seg.color);
 
     if (seg.shape === 0) {
       ellipse(x, y, w, h); // draw circle
@@ -59,24 +59,37 @@ function drawBullPattern() {
   let startX = (width - patternWidth) / 2;
   let startY = (height - patternHeight) / 2;
 
-  for (let seg of bullSegments) {
+  let spectrum = fft ? fft.analyze() : 
+  [];
+
+  for (let i = 0; i < bullSegments.length; i++) {
+    let seg = bullSegments[i];
+
+    // Calculate the position of each segment
     let cellW = patternWidth / gridSize;
     let cellH = patternHeight / gridSize;
     let x = startX + (seg.col + 0.5) * cellW;
     let y = startY + (seg.row + 0.5) * cellH;
 
-    let cellSize = min(cellW, cellH);
+    // Idle pulsation
+    let idlePulse = sin(frameCount * seg.rate + seg.phase) * seg.amp;
 
-    let pulse = sin(frameCount * seg.rate + seg.phase) * seg.amp;
+    //mapping frequencies
+    let rowNorm = seg.row / (gridSize - 1); // 0 top → 1 bottom
+    let freqIndex = floor(spectrum.length * abs(rowNorm - 0.68));
+    freqIndex = constrain(freqIndex, 0, spectrum.length - 1);
 
-    let w = cellSize * (shapeSize + pulse);
-    let h = cellSize * (shapeSize + pulse);
+    // Audio pulse
+    let audioPulse = spectrum.length ? (spectrum[freqIndex] / 255) * 1.3 : 0;
+
+    // Final size with idle + audio
+    let w = cellW * (shapeSize + idlePulse + audioPulse);
+    let h = cellH * (shapeSize + idlePulse + audioPulse);
 
     fill(seg.color);
 
-    if (seg.shape === 0) {
-      ellipse(x, y, w, h);
-    } else {
+    if (seg.shape === 0) ellipse(x, y, w, h);
+    else {
       rectMode(CENTER);
       rect(x, y, w, h);
     }
@@ -92,4 +105,3 @@ function drawAll() {
   drawBgPattern();       // draw animated background
   drawBullPattern();     // draw animated bull foreground
 }
-

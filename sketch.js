@@ -13,13 +13,14 @@ let gridSize = 30; // how many grid cells across and down
 let shapeSize = 3.0; // size of each shape (multiplier)
 let backColor = 250; // backrgound colour (light grey)
 
+
 // =====================================
 // 2. PRELOAD - load images before setup
 // =====================================
 
 function preload() {
   bgImg = loadImage('bull_background.png'); // background link
-  bullImg = loadImage('bull_foreground.png'); // foreground link
+  bullImg = loadImage('bull_fore2.png'); // foreground link
   preloadAudio('MatadorOle.mp3'); //audio
 }
 

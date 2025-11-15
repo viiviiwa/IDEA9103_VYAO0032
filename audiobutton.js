@@ -4,6 +4,8 @@
 
 let song;       // the audio track
 let playBtn;    // play/pause button
+let numBins = 128;
+let smoothing = 0.8;
 
 // -------------------------------
 // 1. Preload audio
@@ -26,10 +28,13 @@ function setupAudio() {
   playBtn.style('cursor', 'pointer'); //button styling
 
     playBtn.mouseOver(() => playBtn.style('background', 'rgba(255,255,255,1)'));
-    playBtn.mouseOut(() => playBtn.style('background', 'rgba(255,255,255,0.8)')); // button hover styling
+    playBtn.mouseOut(() => playBtn.style('background', 'rgba(255,255,255,0.8)')); // button hover
 
   playBtn.mousePressed(toggleSong);
 
+    fft = new p5.FFT(smoothing, numBins); 
+  song.connect(fft);     
+  
   // Initial button positioning
   positionAudioButton();
 }
