@@ -59,8 +59,7 @@ function drawBullPattern() {
   let startX = (width - patternWidth) / 2;
   let startY = (height - patternHeight) / 2;
 
-  let spectrum = fft ? fft.analyze() : 
-  [];
+  let spectrum = fft ? fft.analyze() : [];
 
   for (let i = 0; i < bullSegments.length; i++) {
     let seg = bullSegments[i];
@@ -80,11 +79,11 @@ function drawBullPattern() {
     freqIndex = constrain(freqIndex, 0, spectrum.length - 1);
 
     // Audio pulse
-    let audioPulse = spectrum.length ? (spectrum[freqIndex] / 255) * 1.3 : 0;
+    let audioPulse = spectrum.length ? (spectrum[freqIndex] / 255) * 1 : 0;
 
     // Final size with idle + audio
-    let w = cellW * (shapeSize + idlePulse + audioPulse);
-    let h = cellH * (shapeSize + idlePulse + audioPulse);
+    let w = cellW * ((bullShapeSize + idlePulse + audioPulse));
+    let h = cellH * ((bullShapeSize + idlePulse + audioPulse));
 
     fill(seg.color);
 

@@ -10,8 +10,9 @@ let bgSegments = [];
 let bullSegments = [];
 
 let gridSize = 30; // how many grid cells across and down
-let shapeSize = 3.0; // size of each shape (multiplier)
-let backColor = 250; // backrgound colour (light grey)
+let shapeSize = 3.0; // size of each shape
+let bullShapeSize = 1.5; // size of each shape 
+let backColor = 250; // backrgound colour 
 
 
 // =====================================
@@ -21,7 +22,7 @@ let backColor = 250; // backrgound colour (light grey)
 function preload() {
   bgImg = loadImage('bull_background.png'); // background link
   bullImg = loadImage('bull_fore2.png'); // foreground link
-  preloadAudio('MatadorOle.mp3'); //audio
+  song = loadSound('MatadorOle.mp3'); // audio
 }
 
 // =========================
@@ -191,8 +192,8 @@ function drawBullPattern() {
     
     // shape size
     let cellSize = min(cellW, cellH);
-    let w = cellSize * shapeSize;
-    let h = cellSize * shapeSize;
+    let w = cellSize * bullShapeSize;
+    let h = cellSize * bullShapeSize;
  
     fill(seg.color);
   
@@ -220,5 +221,5 @@ function windowResized() {
   drawAll();
 
   assignAnimationParams();
-  windowResizedAudio();
+  windowResizedAudio(); // resizing audio button 
 }

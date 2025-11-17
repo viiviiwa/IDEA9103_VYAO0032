@@ -8,13 +8,6 @@ let numBins = 128;
 let smoothing = 0.8;
 
 // -------------------------------
-// 1. Preload audio
-// -------------------------------
-function preloadAudio() {
-  song = loadSound('MatadorOle.mp3'); // load  audio
-}
-
-// -------------------------------
 // 2. Setup audio & button
 // -------------------------------
 function setupAudio() {
